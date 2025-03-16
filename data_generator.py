@@ -1,5 +1,4 @@
 import random
-from datetime import datetime
 
 recommended_sleep = 8.5
 sleep_efficiency = random.randint(80, 100)
