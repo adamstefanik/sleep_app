@@ -25,7 +25,7 @@ class SleepTrackerApp:
     def go_to_loading_screen(self, date):
         self.ui.show_frame("loading")
         self.ui.update_loading_quote(self.get_random_quote())
-        self.root.update()  # Force UI update before long operation
+        self.root.update()
         self.fetch_data(date)
 
     def fetch_data(self, date):
@@ -57,7 +57,7 @@ class SleepTrackerApp:
                 if metric["type"] == "night_rhr"
             )
 
-            # Extract all required values
+            # Extract required values
             sleep_index = next(
                 metric["value"]
                 for metric in sleep_data["details"]["quick_metrics"]
@@ -97,6 +97,7 @@ class SleepTrackerApp:
             self.ui.update_error_message(f"Data processing error: {str(e)}")
             self.ui.show_frame("error")
 
+    # Text ifs
     def get_sleep_quality(self, sleep_index):
         if sleep_index > 81:
             return "Optimal REM Sleep"
