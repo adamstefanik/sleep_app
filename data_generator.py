@@ -1,5 +1,4 @@
 import random
-import json
 from datetime import datetime, timedelta
 
 
@@ -60,7 +59,7 @@ def generate_sleep_data(date):
                         "details": {
                             "bedtime_start": bedtime_start.timestamp(),
                             "bedtime_end": bedtime_end.timestamp(),
-                            "sleep_duration": sleep_duration_str,  # Add sleep_duration in "hours:minutes"
+                            "sleep_duration": sleep_duration_str,
                             "quick_metrics": [
                                 {"type": "sleep_index", "value": sleep_index},
                                 {"type": "avg_hrv", "value": avg_hrv},
