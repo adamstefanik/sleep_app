@@ -42,22 +42,22 @@ sleep_app/
 │ ├── data_generator.cpython-313.pyc
 │ └── gui.cpython-313.pyc
 ├── assets/
-│ └── ui-screenshot.png # Hlavný screenshot UI
+│ └── ui-screenshot.png
 ├── bg/
-│ ├── bg_fetch_data.jpg # Pozadie načítavacieho screenu
-│ ├── bg.jpg # Hlavné pozadie
-│ ├── btn.jpg # Tlačidlá
-│ ├── green.jpg # Indikátory (zelená)
-│ ├── red.jpg # Indikátory (červená)
-│ └── yellow.jpg # Indikátory (žltá)
+│ ├── bg_fetch_data.jpg
+│ ├── bg.jpg
+│ ├── btn.jpg
+│ ├── green.jpg
+│ ├── red.jpg 
+│ └── yellow.jpg 
 ├── .gitignore
 ├── data_generator.py # Generátor testovacích dát
 ├── gui.py # Grafické rozhranie
 ├── LICENSE
 ├── main.py # Hlavný vstupný bod
 ├── quotes.json # Databáza motivačných citátov
-├── README.md # Dokumentácia
-└── requirements.txt # Zoznam závislostí
+├── README.md
+└── requirements.txt
 ```
 
 ## Závislosti
