@@ -21,7 +21,7 @@ Moderná desktopová aplikácia na sledovanie a analýzu spánku s prehľadným 
 ## Inštalácia 🔨
 
 ```bash
-https://github.com/adamstefanik/sleep_app.git
+git clone https://github.com/adamstefanik/sleep_app.git
 cd sleep_app
 ```
 ```
@@ -31,7 +31,7 @@ pip install -r requirements.txt
 ## Spustenie aplikácie
 
 ```
-   python main.py
+python main.py
 ```
 
 ## Štruktúra projektu
