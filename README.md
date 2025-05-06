@@ -36,7 +36,6 @@ pip install -r requirements.txt
 
 ## Štruktúra projektu
 
-```
 sleep_app/
 ├── pycache/
 │ ├── data_generator.cpython-313.pyc
@@ -58,7 +57,6 @@ sleep_app/
 ├── quotes.json # Databáza motivačných citátov
 ├── README.md
 └── requirements.txt
-```
 
 ## Závislosti
 
