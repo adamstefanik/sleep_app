@@ -2,7 +2,7 @@
 
 Moderná desktopová aplikácia na sledovanie a analýzu spánku s prehľadným rozhraním a užitočnými radami.
 
-![Alt text](/to/image.jpg)
+![Alt text](assets/ui-screenshot.png)
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![Tkinter](https://img.shields.io/badge/Tkinter-8.6+-green.svg)
