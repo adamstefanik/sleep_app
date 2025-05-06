@@ -1,6 +1,6 @@
 # NightNest - Sleep Tracker🌙
 
-Moderná desktopová aplikácia na sledovanie a analýzu spánku s prehľadným rozhraním a užitočnými radami.
+Moderná desktopová aplikácia na sledovanie a analýzu spánku s prehľadným rozhraním a krátkymi radami.
 
 ![Alt text](assets/ui-screenshot.png)
 
