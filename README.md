@@ -21,8 +21,8 @@ Moderná desktopová aplikácia na sledovanie a analýzu spánku s prehľadným 
 ## Inštalácia 🔨
 
 ```bash
-git clone https://github.com/adamstefanik/sleep-tracker.git
-cd sleep-tracker
+https://github.com/adamstefanik/sleep_app.git
+cd sleep_app
 ```
 ```
 pip install -r requirements.txt
@@ -37,25 +37,27 @@ pip install -r requirements.txt
 ## Štruktúra projektu 📂
 
 ```
-sleep-tracker/
+sleep_app/
 ├── pycache/
 │ ├── data_generator.cpython-313.pyc
 │ └── gui.cpython-313.pyc
+├── assets/
+│ └── ui-screenshot.png # Hlavný screenshot UI
 ├── bg/
-│ ├── bg_fetch_data.jpg
-│ ├── bg.jpg
-│ ├── btn.jpg
-│ ├── green.jpg
-│ ├── red.jpg
-│ └── yellow.jpg
+│ ├── bg_fetch_data.jpg # Pozadie načítavacieho screenu
+│ ├── bg.jpg # Hlavné pozadie
+│ ├── btn.jpg # Tlačidlá
+│ ├── green.jpg # Indikátory (zelená)
+│ ├── red.jpg # Indikátory (červená)
+│ └── yellow.jpg # Indikátory (žltá)
 ├── .gitignore
-├── data_generator.py
-├── gui.py
+├── data_generator.py # Generátor testovacích dát
+├── gui.py # Grafické rozhranie
 ├── LICENSE
-├── main.py
-├── quotes.json
-├── README.md
-└── requirements.txt
+├── main.py # Hlavný vstupný bod
+├── quotes.json # Databáza motivačných citátov
+├── README.md # Dokumentácia
+└── requirements.txt # Zoznam závislostí
 ```
 
 ## Závislosti 📚
