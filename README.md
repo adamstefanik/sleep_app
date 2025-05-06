@@ -8,7 +8,7 @@ Moderná desktopová aplikácia na sledovanie a analýzu spánku s prehľadným 
 ![Tkinter](https://img.shields.io/badge/Tkinter-8.6+-green.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-## Funkcie 🚀
+## Funkcie
 
 - **Analýza spánku** - Zobrazuje kľúčové metriky kvality spánku
 - **Spánkový index** - Hodnotenie kvality spánku v rozsahu 1-100
@@ -34,7 +34,7 @@ pip install -r requirements.txt
    python main.py
 ```
 
-## Štruktúra projektu 📂
+## Štruktúra projektu
 
 ```
 sleep_app/
@@ -60,7 +60,7 @@ sleep_app/
 └── requirements.txt # Zoznam závislostí
 ```
 
-## Závislosti 📚
+## Závislosti
 
 - Python 3.8+
 - Tkinter
