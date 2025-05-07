@@ -5,16 +5,19 @@ from datetime import datetime, timedelta
 from data_generator import generate_sleep_data
 
 
+# Binds UI button events and starts the main application loop
 def setup_events_and_run(root, ui):
     ui.home_button.bind("<ButtonRelease-1>", lambda e: last_night_data(ui, root))
     root.mainloop()
 
 
+# Calculates the previous night's date and starts loading screen
 def last_night_data(ui, root):
     last_night = datetime.now() - timedelta(days=1)
     go_to_loading_screen(ui, root, last_night)
 
 
+# Switches UI to loading screen and starts data fetching
 def go_to_loading_screen(ui, root, date):
     ui.show_frame("loading")
     ui.update_loading_quote(get_random_quote())
@@ -22,6 +25,7 @@ def go_to_loading_screen(ui, root, date):
     fetch_data(ui, date)
 
 
+# Simulates data fetching, processes the data, and updates the UI
 def fetch_data(ui, date):
     try:
         time.sleep(2.5)  # Simulated data fetching
@@ -40,6 +44,7 @@ def fetch_data(ui, date):
         ui.show_frame("error")
 
 
+# Extracts and formats sleep-related metrics from raw data
 def process_sleep_data(data):
     try:
         sleep_data = next(
@@ -87,6 +92,7 @@ def process_sleep_data(data):
         raise ValueError(f"Data processing error: {str(e)}")
 
 
+# Returns a sleep quality label based on the given sleep index
 def get_sleep_quality(sleep_index):
     if sleep_index > 81:
         return "Optimal REM Sleep"
@@ -96,6 +102,7 @@ def get_sleep_quality(sleep_index):
         return "Poor Sleep Detected"
 
 
+# Returns tailored sleep advice based on the sleep index
 def get_sleep_advice(sleep_index):
     if sleep_index > 84:
         return "Your excellent sleep score indicates optimal REM cycles."
@@ -105,6 +112,7 @@ def get_sleep_advice(sleep_index):
         return "Your sleep lacked restorative phases. Avoid screens before bed and reduce caffeine."
 
 
+# Loads motivational or informative quotes from a local JSON file
 def load_quotes():
     try:
         with open("quotes.json", "r") as f:
@@ -113,6 +121,7 @@ def load_quotes():
         return [{"quote": "No quotes available.", "author": "System"}]
 
 
+# Returns one random quote from the loaded quotes
 def get_random_quote():
     quotes = load_quotes()
     if quotes:

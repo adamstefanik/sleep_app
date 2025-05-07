@@ -3,10 +3,12 @@ from PIL import Image, ImageTk
 
 
 class SleepTrackerUI:
+    # Initializes the UI and calls setup methods
     def __init__(self, root):
         self.root = root
         self.setup_ui()
 
+    # Sets up the main UI window and all application frames
     def setup_ui(self):
         self.root.title("NightNest")
         self.root.geometry("400x420")
@@ -25,6 +27,7 @@ class SleepTrackerUI:
         # Show home frame initially
         self.show_frame("home")
 
+    # Configures the home screen with background, welcome text, and a button
     def setup_home_frame(self):
         # Background image
         self.home_bg_image = Image.open("bg/bg.jpg").resize(
@@ -76,6 +79,7 @@ class SleepTrackerUI:
             200, 260, window=self.home_button, anchor="center"
         )
 
+    # Configures the loading screen with background and a placeholder for a quote
     def setup_loading_frame(self):
         self.loading_bg_image = Image.open("bg/bg_fetch_data.jpg").resize(
             (400, 420), Image.Resampling.LANCZOS
@@ -106,6 +110,7 @@ class SleepTrackerUI:
             justify="center",
         )
 
+    # Configures the error screen to display error messages and a back button
     def setup_error_frame(self):
         self.error_label = tk.Label(
             self.error_frame,
@@ -124,6 +129,7 @@ class SleepTrackerUI:
         )
         self.error_button.pack(pady=10)
 
+    # Configures the data screen based on the sleep index and displays background accordingly
     def setup_data_frame(self, sleep_index):
         # Set background color based on sleep index
         if sleep_index > 81:
@@ -147,6 +153,7 @@ class SleepTrackerUI:
         self.data_canvas.pack(fill="both", expand=True)
         self.data_canvas.create_image(0, 0, image=self.data_bg_photo, anchor="nw")
 
+    # Displays the specified frame by hiding others
     def show_frame(self, frame_name):
         frames = {
             "home": self.home_frame,
@@ -160,12 +167,15 @@ class SleepTrackerUI:
 
         frames[frame_name].pack(fill=tk.BOTH, expand=True)
 
+    # Updates the quote text on the loading screen
     def update_loading_quote(self, quote):
         self.loading_canvas.itemconfig(self.quote_text, text=quote)
 
+    # Updates the error message displayed on the error screen
     def update_error_message(self, message):
         self.error_label.config(text=f"Error: {message}")
 
+    # Populates the data screen with sleep-related values from a given dictionary
     def update_data_screen(self, data):
         # Sleep index
         self.data_canvas.create_text(

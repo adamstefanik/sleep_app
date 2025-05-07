@@ -2,19 +2,20 @@ import random
 from datetime import datetime, timedelta
 
 
+# Generates simulated sleep data for a given date
 def generate_sleep_data(date):
     recommended_sleep = 8.5
     sleep_efficiency = random.randint(80, 100)
     deep_sleep = random.randint(20, 25)  # %
-    rem_sleep = random.randint(20, 25)  # %
+    rem_sleep = random.randint(20, 25)   # %
 
-    # Generate sleep times (hours and minutes)
+    # Generate random bedtime start and end times
     bedtime_start_hour = random.randint(21, 23)
     bedtime_start_minute = random.randint(0, 59)
     bedtime_end_hour = bedtime_start_hour + random.randint(7, 9)
     bedtime_end_minute = random.randint(0, 59)
 
-    # Adjust for next day if needed
+    # Adjust the end date if sleep ends after midnight
     if bedtime_end_hour >= 24:
         bedtime_end_hour -= 24
         end_date = date + timedelta(days=1)
@@ -34,10 +35,10 @@ def generate_sleep_data(date):
     sleep_duration_hours = int(sleep_duration_seconds // 3600)
     sleep_duration_minutes = int((sleep_duration_seconds % 3600) // 60)
 
-    # Format sleep_duration as "hours:minutes"
+    # Format sleep duration as string "H:MM"
     sleep_duration_str = f"{sleep_duration_hours}:{sleep_duration_minutes:02}"
 
-    # Calculate sleep index
+    # Compute custom sleep index based on duration, efficiency, and sleep stages
     sleep_index = (
         (sleep_duration_hours / recommended_sleep * 0.5)
         + (sleep_efficiency / 100 * 0.3)
@@ -45,10 +46,12 @@ def generate_sleep_data(date):
     ) * 110 - 10
     sleep_index = int(sleep_index)
 
+    # Simulated physiological metrics
     resting_hr = random.randint(45, 55)
     avg_hrv = random.randint(20, 55)
     sleep_cycles = random.randint(4, 6)
 
+    # Construct the JSON-like data structure representing sleep metrics
     json_data = {
         "data": {
             "metric_data": [
@@ -70,8 +73,7 @@ def generate_sleep_data(date):
                                         "start": bedtime_start.timestamp(),
                                         "end": bedtime_end.timestamp(),
                                     }
-                                ]
-                                * sleep_cycles
+                                ] * sleep_cycles
                             },
                         },
                     },
