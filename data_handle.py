@@ -44,7 +44,7 @@ def fetch_data(ui, date):
         ui.show_frame("error")
 
 
-# Extracts and formats sleep-related metrics from raw data
+# Extracts and formats metrics from data_generator.py
 def process_sleep_data(data):
     try:
         sleep_data = next(
@@ -92,7 +92,7 @@ def process_sleep_data(data):
         raise ValueError(f"Data processing error: {str(e)}")
 
 
-# Returns a sleep quality label based on the given sleep index
+# Returns a label based on the given sleep index
 def get_sleep_quality(sleep_index):
     if sleep_index > 81:
         return "Optimal REM Sleep"
@@ -102,12 +102,12 @@ def get_sleep_quality(sleep_index):
         return "Poor Sleep Detected"
 
 
-# Returns tailored sleep advice based on the sleep index
+# Returns advice based on the sleep index
 def get_sleep_advice(sleep_index):
     if sleep_index > 84:
         return "Your excellent sleep score indicates optimal REM cycles."
     elif sleep_index > 75:
-        return "You got adequate rest but missed some deep sleep. Try going to bed 30 mins earlier tonight."
+        return "You got adequate rest but missed some sleep. Try going to bed earlier tonight."
     else:
         return "Your sleep lacked restorative phases. Avoid screens before bed and reduce caffeine."
 

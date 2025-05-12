@@ -24,7 +24,7 @@ class SleepTrackerUI:
         self.setup_loading_frame()
         self.setup_error_frame()
 
-        # Show home frame initially
+        # Show home frame
         self.show_frame("home")
 
     # Configures the home screen with background, welcome text, and a button
