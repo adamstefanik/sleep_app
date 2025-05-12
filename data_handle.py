@@ -5,19 +5,18 @@ from datetime import datetime, timedelta
 from data_generator import generate_sleep_data
 
 
-# Binds UI button events and starts the main application loop
 def setup_events_and_run(root, ui):
-    ui.home_button.bind("<ButtonRelease-1>", lambda e: last_night_data(ui, root))
+    ui.home_button.bind(
+        "<ButtonRelease-1>", lambda e: last_night_data(ui, root)
+    )
     root.mainloop()
 
 
-# Calculates the previous night's date and starts loading screen
 def last_night_data(ui, root):
     last_night = datetime.now() - timedelta(days=1)
     go_to_loading_screen(ui, root, last_night)
 
 
-# Switches UI to loading screen and starts data fetching
 def go_to_loading_screen(ui, root, date):
     ui.show_frame("loading")
     ui.update_loading_quote(get_random_quote())
@@ -25,7 +24,6 @@ def go_to_loading_screen(ui, root, date):
     fetch_data(ui, date)
 
 
-# Simulates data fetching, processes the data, and updates the UI
 def fetch_data(ui, date):
     try:
         time.sleep(2.5)  # Simulated data fetching
@@ -44,7 +42,6 @@ def fetch_data(ui, date):
         ui.show_frame("error")
 
 
-# Extracts and formats metrics from data_generator.py
 def process_sleep_data(data):
     try:
         sleep_data = next(
@@ -70,6 +67,7 @@ def process_sleep_data(data):
         sleep_duration = sleep_data["details"]["sleep_duration"]
         sleep_cycles = len(sleep_data["details"]["sleep_graph"]["data"])
         resting_hr = night_rhr_data["values"][0]["value"]
+
         avg_hrv = next(
             metric["value"]
             for metric in sleep_data["details"]["quick_metrics"]
@@ -78,8 +76,12 @@ def process_sleep_data(data):
 
         return {
             "sleep_index": sleep_index,
-            "bedtime_start": datetime.fromtimestamp(bedtime_start).strftime("%H:%M"),
-            "bedtime_end": datetime.fromtimestamp(bedtime_end).strftime("%H:%M"),
+            "bedtime_start": datetime.fromtimestamp(
+                bedtime_start
+            ).strftime("%H:%M"),
+            "bedtime_end": datetime.fromtimestamp(
+                bedtime_end
+            ).strftime("%H:%M"),
             "sleep_duration": sleep_duration,
             "sleep_cycles": sleep_cycles,
             "resting_hr": resting_hr,
@@ -92,7 +94,6 @@ def process_sleep_data(data):
         raise ValueError(f"Data processing error: {str(e)}")
 
 
-# Returns a label based on the given sleep index
 def get_sleep_quality(sleep_index):
     if sleep_index > 81:
         return "Optimal REM Sleep"
@@ -102,17 +103,21 @@ def get_sleep_quality(sleep_index):
         return "Poor Sleep Detected"
 
 
-# Returns advice based on the sleep index
 def get_sleep_advice(sleep_index):
     if sleep_index > 84:
         return "Your excellent sleep score indicates optimal REM cycles."
     elif sleep_index > 75:
-        return "You got adequate rest but missed some sleep. Try going to bed earlier tonight."
+        return (
+            "You got adequate rest but missed some sleep. "
+            "Try going to bed earlier tonight."
+        )
     else:
-        return "Your sleep lacked restorative phases. Avoid screens before bed and reduce caffeine."
+        return (
+            "Your sleep lacked restorative phases. "
+            "Avoid screens before bed and reduce caffeine."
+        )
 
 
-# Loads motivational or informative quotes from a local JSON file
 def load_quotes():
     try:
         with open("quotes.json", "r") as f:
@@ -121,7 +126,6 @@ def load_quotes():
         return [{"quote": "No quotes available.", "author": "System"}]
 
 
-# Returns one random quote from the loaded quotes
 def get_random_quote():
     quotes = load_quotes()
     if quotes:

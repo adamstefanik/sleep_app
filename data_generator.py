@@ -38,7 +38,7 @@ def generate_sleep_data(date):
     # Format sleep duration as string "H:MM"
     sleep_duration_str = f"{sleep_duration_hours}:{sleep_duration_minutes:02}"
 
-    # Compute custom sleep index based on duration, efficiency, and sleep stages
+    # Creates sleep index based on duration, efficiency, and sleep stages
     sleep_index = (
         (sleep_duration_hours / recommended_sleep * 0.5)
         + (sleep_efficiency / 100 * 0.3)
