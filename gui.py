@@ -4,10 +4,12 @@ from PIL import Image, ImageTk
 
 class SleepTrackerUI:
     def __init__(self, root):
+        # Initialize the UI with the main root window
         self.root = root
         self.setup_ui()
 
     def setup_ui(self):
+        # Set up the main window and initialize all frames
         self.root.title("NightNest")
         self.root.geometry("400x420")
         self.root.resizable(False, False)
@@ -24,6 +26,7 @@ class SleepTrackerUI:
         self.show_frame("home")
 
     def setup_home_frame(self):
+        # Configure the home screen layout and visuals
         self.home_bg_image = Image.open("bg/bg.jpg").resize(
             (400, 420), Image.Resampling.LANCZOS
         )
@@ -37,6 +40,7 @@ class SleepTrackerUI:
             0, 0, image=self.home_bg_photo, anchor="nw"
         )
 
+        # Add title and subtitle text
         self.home_canvas.create_text(
             200, 140, text="NightNest",
             font=("Helvetica Neue", 30, "bold"), fill="white"
@@ -51,6 +55,7 @@ class SleepTrackerUI:
             font=("Inter", 14), fill="white"
         )
 
+        # Add button to load data
         self.button_img = Image.open("bg/btn.jpg").resize((135, 35))
         self.button_photo = ImageTk.PhotoImage(self.button_img)
 
@@ -70,6 +75,7 @@ class SleepTrackerUI:
         )
 
     def setup_loading_frame(self):
+        # Configure the loading screen with background and text
         self.loading_bg_image = Image.open("bg/bg_fetch_data.jpg").resize(
             (400, 420), Image.Resampling.LANCZOS
         )
@@ -88,12 +94,14 @@ class SleepTrackerUI:
             font=("Helvetica Neue", 30, "bold"), fill="white"
         )
 
+        # Placeholder for motivational quote
         self.quote_text = self.loading_canvas.create_text(
             200, 210, text="", font=("Inter", 14),
             fill="white", width=350, justify="center"
         )
 
     def setup_error_frame(self):
+        # Configure the error screen with message and close button
         self.error_label = tk.Label(
             self.error_frame,
             text="",
@@ -112,6 +120,7 @@ class SleepTrackerUI:
         self.error_button.pack(pady=10)
 
     def setup_data_frame(self, sleep_index):
+        # Set background image based on sleep index and prepare canvas
         if sleep_index > 81:
             bg_image = Image.open("bg/green.jpg")
         elif sleep_index > 62:
@@ -124,6 +133,7 @@ class SleepTrackerUI:
         )
         self.data_bg_photo = ImageTk.PhotoImage(self.data_bg_image)
 
+        # Clear any previous widgets before drawing new data
         for widget in self.data_frame.winfo_children():
             widget.destroy()
 
@@ -136,6 +146,7 @@ class SleepTrackerUI:
         )
 
     def show_frame(self, frame_name):
+        # Show the selected frame and hide all others
         frames = {
             "home": self.home_frame,
             "loading": self.loading_frame,
@@ -149,12 +160,15 @@ class SleepTrackerUI:
         frames[frame_name].pack(fill=tk.BOTH, expand=True)
 
     def update_loading_quote(self, quote):
+        # Update the motivational quote on the loading screen
         self.loading_canvas.itemconfig(self.quote_text, text=quote)
 
     def update_error_message(self, message):
+        # Display an error message on the error screen
         self.error_label.config(text=f"Error: {message}")
 
     def update_data_screen(self, data):
+        # Render sleep-related data on the data screen
         self.data_canvas.create_text(
             200, 90, text=data["sleep_index"],
             font=("Helvetica Neue", 45), fill="white"
