@@ -1,6 +1,6 @@
 # NightNest
 
-Moderná desktopová aplikácia na sledovanie a analýzu spánku s prehľadným rozhraním a krátkymi radami.
+Modern desktop application for sleep tracking and analysis, featuring a clear interface and concise tips.
 
 ![Alt text](assets/ui-screenshot.png)
 
@@ -8,17 +8,17 @@ Moderná desktopová aplikácia na sledovanie a analýzu spánku s prehľadným 
 ![Tkinter](https://img.shields.io/badge/Tkinter-8.6+-green.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-## Funkcie
+## Functions
 
-- **Analýza spánku** - Zobrazuje kľúčové metriky kvality spánku
-- **Spánkový index** - Hodnotenie kvality spánku v rozsahu 1-100
-- **Detaily spánku** - Čas zaspania, dĺžka spánku a počet cyklov
-- **Zdravotné metriky** - Pokojový pulz a variabilita srdcového rytmu (HRV)
-- **Odborné rady** - Personalizované tipy na základe kvality spánku
-- **Motivačné citáty** - Náhodné citáty počas načítavania dát 
-- **Moderné rozhranie** - Intuitívne GUI inšpirované Ultrahuman
+-Sleep Analysis – Displays key sleep quality metrics
+-Sleep Index – Sleep quality rating on a scale from 1 to 100
+-Sleep Details – Bedtime, sleep duration, and number of sleep cycles
+-Health Metrics – Resting heart rate and heart rate variability (HRV)
+-Expert Advice – Personalized tips based on sleep quality
+-Motivational Quotes – Random quotes displayed during data loading
+-Modern Interface – Intuitive GUI inspired by Ultrahuman
 
-## Inštalácia 🔨
+## How to Run
 
 ```bash
 git clone https://github.com/adamstefanik/sleep_app.git
@@ -27,14 +27,11 @@ cd sleep_app
 ```
 pip install -r requirements.txt
 ```
-
-## Spustenie aplikácie
-
 ```
 python main.py
 ```
 
-## Štruktúra projektu
+## Structure
 
 ```
 sleep_app/
@@ -60,8 +57,13 @@ sleep_app/
 └── requirements.txt
 ```
 
-## Závislosti
+## Dependencies
 
 - Python 3.8+
 - Tkinter
-- Standardné knižnice (json, random, time, datetime)
+- Standart library (json, random, time, datetime)
+
+## License
+
+This project was developed as part of my studies in software engineering during my junior year at Univerzita Tomáše Bati v Zlíne and is intended for educational purposes.
+
