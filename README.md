@@ -1,6 +1,4 @@
-<p align="center">                                                                                                              
-    <img src="assets/ui-screenshot.png" alt="NightNest App" width="700"/>
-  </p>                                                                                                                            
+![Alt text](assets/ui-screenshot.png)                                                                                                                         
                                                                                                                                   
   # NightNest                                                                                                                     
                                                                                                                                   
@@ -34,7 +32,7 @@
   ```
                                                                                                                 
   ## Structure                                         
-                                                           
+  ```                                                         
   sleep_app/                          
   ├── __pycache__/
   │   ├── data_generator.cpython-313.pyc
@@ -55,8 +53,8 @@
   ├── main.py            # Main entry point
   ├── quotes.json        # Motivational quotes database                                                                           
   ├── README.md
-  └── requirements.txt                                                                                                            
-                                                    
+  └── requirements.txt
+  ```                                                 
   ## Tech Stack                                               
                                       
   - Python 3.8+
