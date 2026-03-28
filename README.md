@@ -1,4 +1,8 @@
-![Alt text](assets/ui-screenshot.png)                                                                                                                         
+![Alt text](assets/ui-screenshot.png)
+
+![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)                                                                      
+![Tkinter](https://img.shields.io/badge/Tkinter-8.6+-green.svg)                                                                   
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
                                                                                                                                   
   # NightNest                                                                                                                     
                                                                                                                                   
